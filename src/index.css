@@ -86,6 +86,39 @@ body {
   margin-top: 0.5rem;
 }
 
+/* Search */
+.search-container {
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 50px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.search-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  stroke-width: 2.5;
+}
+
 /* Content */
 .content {
   max-width: 1200px;
@@ -120,6 +153,68 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   margin-top: 1rem;
+}
+
+/* Results info */
+.results-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  color: white;
+  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.results-count {
+  font-size: 0.95rem;
+}
+
+.items-per-page {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.items-select {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #667eea;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+}
+
+.items-select:hover {
+  background: white;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.items-select:focus {
+  border-color: white;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
+  font-size: 1.2rem;
 }
 
 /* Card Grid */
@@ -211,6 +306,83 @@ body {
   margin-top: 0.25rem;
 }
 
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pagination-number {
+  width: 45px;
+  height: 45px;
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-number:hover {
+  background: #667eea;
+  color: white;
+  transform: scale(1.1);
+}
+
+.pagination-number.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.pagination-dots {
+  color: white;
+  font-weight: 700;
+  padding: 0 0.25rem;
+}
+
 /* Footer */
 .footer {
   background: rgba(255, 255, 255, 0.9);
@@ -231,6 +403,16 @@ body {
     font-size: 2rem;
   }
   
+  .search-container {
+    max-width: 90%;
+  }
+  
+  .results-info {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
   .card-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 1rem;
@@ -244,6 +426,21 @@ body {
   .card-image-container {
     min-height: 120px;
     padding: 1rem;
+  }
+  
+  .pagination {
+    gap: 0.25rem;
+  }
+  
+  .pagination-btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .pagination-number {
+    width: 40px;
+    height: 40px;
+    font-size: 0.85rem;
   }
 }
 
@@ -261,7 +458,32 @@ body {
     height: 35px;
   }
   
+  .search-input {
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .results-info {
+    font-size: 0.85rem;
+  }
+  
+  .items-select {
+    padding: 0.4rem 1.75rem 0.4rem 0.65rem;
+    font-size: 0.85rem;
+  }
+  
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pagination-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .pagination-number {
+    width: 35px;
+    height: 35px;
+    font-size: 0.8rem;
   }
 }
