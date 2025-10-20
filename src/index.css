@@ -14,13 +14,13 @@ body {
 
 .app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e5e4e4 100%);
   position: relative;
 }
 
 /* Header */
 .header {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 2rem 1rem;
@@ -73,7 +73,7 @@ body {
 .title {
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #ea6666, #ccc855);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
