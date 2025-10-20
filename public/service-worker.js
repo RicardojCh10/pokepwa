@@ -1,4 +1,5 @@
 /* eslint-env serviceworker */
+/* eslint-disable no-restricted-globals */
 
 const CACHE_NAME = 'pokedex-cache-v1';
 const API_CACHE_NAME = 'pokedex-api-cache-v1';
